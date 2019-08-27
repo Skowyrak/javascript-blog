@@ -48,13 +48,14 @@ function generateTitleLinks(){
   /* remove contents of titleList */
 const titleList = document.querySelector(optTitleListSelector);
   titleList.innerHTML = '';
-const li = document.querySelectorAll('.titles li');
-    li.classlist.remove('li');
 }
   /* for each article */
-
-    /* get the article id */
-
+  const articles = document.querySelectorAll(optArticleSelector);
+    for(let article of articles){
+      /* get the article id */
+      const articleId = article.getAttribute('id');
+      const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+    }
     /* find the title element */
 
     /* get the title from the title element */
