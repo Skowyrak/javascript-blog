@@ -37,9 +37,9 @@ const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
   optTitleListSelector = '.titles',
   optArticleTagsSelector = '.post-tags-list',
-  optArticleAuthorSelector= '.post-author',
+  optArticleAuthorSelector= '.post-author';
 
- function generateTitleLinks(customSelector = '')
+ function generateTitleLinks(customSelector = '') {
   /* remove contents of titleList */
   const titleList = document.querySelector(optTitleListSelector);
   titleList.innerHTML = '';
@@ -64,7 +64,7 @@ const optArticleSelector = '.post',
   for(let link of links){
     link.addEventListener('click', titleClickHandler);
   }
-};
+}
 
 generateTitleLinks();
 
@@ -89,8 +89,9 @@ function generateTags() {
       html = html + linkHTML;
     }
   }
-  /* END LOOP: for each tag */
 }
+  /* END LOOP: for each tag */
+
 /* insert HTML of all the links into the tags wrapper */
 
 /* END LOOP: for every article: */
@@ -138,14 +139,30 @@ link.addEventListener('click', tagClickHandler);
 }
 addClickListenersToTags();
 
-function generateAuthors(); {}
+function generateAuthors(){
 /* for each article */
 const articles = document.querySelectorAll(optArticleSelector);
 for(let article of articles){
   const authorsList = article.querySelector(optArticleAuthorSelector);
   let html = '';
   const articleAuthor = article.getAttribute('data-author');
-  }
+const linkHTML = '<span>by</span>' + '<a href="author-' + articleAuthor + '">' + articleAuthor + '</a>';
+/* create HTML of the link */
+const rightColumn = '<a href=author-' + articleAuthor + '"> + articleAuthor + '</a>';
+html = html + linkHTML;
+}
+/* insert link into titleList */
+authorsList.innerHTML = html;
+
+const links = document.querySelectorAll('optArticleAuthorSelector');
+console.log(links);
+const allAuthors = {authors: []};
+for(let link of links){
+  allAuthorsHTML = '<li><a href="#">' + link + '(' + allAuthors[author] +')</a></li>';
+link.addEventListener('click', titleClickHandler);
+}
+};
+links.innerHTML = right.links(allAuthors);
 }
 generateAuthors()
 
