@@ -5,7 +5,7 @@
   const optTitleSelector = '.post-title';
   const optTitleListSelector = '.titles';
   const optArticleTagsSelector = '.post-tags .list';
-  const optArticleAuthorSelector = '.authors';
+  const optArticleAuthorSelector = '.post-author';
 
   const titleClickHandler = function(event) {
     event.preventDefault();
@@ -199,7 +199,6 @@
 
   }
 
-
   function addClickListenersToTags() {
 
     /* find all links to tags */
@@ -227,11 +226,11 @@
 
     /* find author wrapper */
     for(let article of articles){
-      const authorList = article.querySelectorAll(optArticleAuthorSelector);
+      const authorList = article.querySelector(optArticleAuthorSelector);
       /* make html variable with empty string */
       let html = '';
       /* get author from ............... */
-      const articleAuthor = article.getAttribute(authorList);
+      const articleAuthor = article.getAttribute('data-author');
       /* generate HTML of the link */
 
       const linkHTML = '<li><a href="#' + authorList +'"<span>' + articleAuthor + '</span></a></li> ';
