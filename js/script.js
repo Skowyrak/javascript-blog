@@ -124,16 +124,16 @@
 
         /* add generated code to html variable */
         html = html + linkHTML;
-
+        if(!allTags.hasOwnProperty(tag)){ //jeśli warunek allTags nie ma klucza tag
+          /* [NEW] add generated code to allTags object */
+          allTags[tag] = 1;
+        } else {
+          allTags[tag]++;
+        }
         /* END LOOP: for each tag */
       }
       /* [NEW] check if this link is NOT already in allTags */
-      if(!allTags.hasOwnProperty(tag)){ //jeśli warunek allTags nie ma klucza tag
-        /* [NEW] add generated code to allTags object */
-        allTags[tag] = 1;
-      } else {
-        allTags[tag]++;
-      }
+
       /* insert HTML of all the links into the tags wrapper */
 
       titleList.innerHTML = html;
