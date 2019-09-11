@@ -300,23 +300,21 @@ function generateAuthors() {
 
     /* add generated code to html variable */
     html = html + linkHTML;
-    if(!allAuthors.hasOwnProperty(article)){ //jeśli warunek allTags nie ma klucza tag
+    if(!allAuthors.hasOwnProperty(articleAuthor)){ //jeśli warunek allTags nie ma klucza articleAuthor
       /* [NEW] add generated code to allTags object */
-      allAuthors[article] = 1;
+      allAuthors[articleAuthor] = 1;
     }
     else {
-      allAuthors[article]++;
+      allAuthors[articleAuthor]++;
     }
-    /* END LOOP: for each tag */
+    /* [NEW] check if this link is NOT already in allTags */
+
+    /* insert HTML of all the links into the tags wrapper */
+
+    /* END LOOP: for every article: */
+
+    authorList.innerHTML = html;
   }
-  /* [NEW] check if this link is NOT already in allTags */
-
-  /* insert HTML of all the links into the tags wrapper */
-
-  /* END LOOP: for every article: */
-
-  authorList.innerHTML = html;
-
   /* insert HTML of all the links into the authors wrapper */
   const authorList = document.querySelector(optAuthorsListSelector);
   console.log(allAuthors);
