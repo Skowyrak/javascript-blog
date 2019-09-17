@@ -88,13 +88,12 @@ function generateTitleLinks(customSelector = '') {
   titleList.innerHTML = html;
 }
 
-generateTitleLinks();
-
 const links = document.querySelectorAll('.titles a');
 
 for(let link of links) {
   link.addEventListener('click', titleClickHandler);
 }
+generateTitleLinks();
 
 function calculateTagsParams(tags) {
   const params = {
