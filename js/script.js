@@ -82,16 +82,15 @@ function generateTitleLinks(customSelector = '') {
 
     /*titleList.innerHTML = titleList.innerHTML + linkHTML; - correct code but not effective for expanded code*/
     /*titleList.insertAdjacentHTML('beforeend', linkHTML); - code with insertAdjacementTHML function*/
-
   }
 
   titleList.innerHTML = html;
-}
 
 const links = document.querySelectorAll('.titles a');
 
-for(let link of links) {
-  link.addEventListener('click', titleClickHandler);
+  for(let link of links) {
+    link.addEventListener('click', titleClickHandler);
+  }
 }
 generateTitleLinks();
 
@@ -295,7 +294,8 @@ function generateAuthors() {
     /* get author from ............... */
     const articleAuthor = article.getAttribute('data-author');
     /* generate HTML of the link */
-    const linkHTML = '<li><a href="#author-' + articleAuthor +'"><span>' + articleAuthor + '</span></a></li> ';
+    const linkHTML = '<li><a href="#author-' + articleAuthor +'"> ' + articleAuthor + '</a></li>';
+    //'<li><a href="#tag-' + tag + '"> ' + tag  + '(' + allTags[tag] + ') </a></li>';
 
     /* add generated code to html variable */
     html = html + linkHTML;
@@ -307,9 +307,12 @@ function generateAuthors() {
       allAuthors[articleAuthor]++;
     }
     /* [NEW] check if this link is NOT already in allTags */
+    let allAuthorsHTML = '';
 
+    for(let author in allAuthors) {
+      allAuthorsHTML += '<li><a href="#' + author + '">' + author + '(' + allAuthors[articleAuthor] + ')</a></li>';
     /* insert HTML of all the links into the tags wrapper */
-
+    }
     /* END LOOP: for every article: */
 
     authorList.innerHTML = html;
